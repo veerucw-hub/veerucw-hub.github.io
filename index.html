@@ -1,16 +1,307 @@
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Veeru Bead Art</title>
-<style>
-body{background:#EAF6FF;font-family:sans-serif;margin:0;text-align:center}
-header{background:#AEDFF7;padding:40px 20px}
-h1{color:#1a5a7a}
-.btn{background:#4AB3E0;color:white;padding:15px 30px;border-radius:50px;text-decoration:none;display:inline-block;font-weight:900;margin-top:15px}
-.card{background:white;margin:20px;padding:20px;border-radius:20px}
-</style></head><body>
-<header><h1>🩵 VEERU BEAD ART 🩵</h1><p>Your Photo -> Beautiful Bead Art</p><a class="btn" href="https://wa.me/94775035197">Order on WhatsApp</a></header>
-<div class="card"><h2>🐶 Pet Portrait</h2><p>From R$ 149</p><a class="btn" href="https://wa.me/94775035197">Order Pet</a></div>
-<div class="card"><h2>💑 Couple Portrait</h2><p>From R$ 199</p><a class="btn" href="https://wa.me/94775035197">Order Couple</a></div>
-<div class="card"><h2>👶 Baby Portrait</h2><p>From R$ 249</p><a class="btn" href="https://wa.me/94775035197">Order Baby</a></div>
-<p>⭐ 4.9 | 200+ Happy Customers</p>
-</body></html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Veeru Bead Art</title>
+  <style>
+    :root {
+      --sky-1: #f5fbff;
+      --sky-2: #dff4ff;
+      --sky-3: #c9edff;
+      --pink: #ff7ec8;
+      --pink-dark: #ef5bb0;
+      --purple: #8b5cf6;
+      --purple-dark: #6d41d4;
+      --blue: #4ab3e0;
+      --blue-dark: #1d7fb5;
+      --mint: #7fe7d5;
+      --gold: #ffd166;
+      --text: #1d3557;
+      --muted: #456682;
+      --white: #ffffff;
+      --shadow: rgba(31, 76, 117, 0.16);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(255,126,200,0.25), transparent 22%),
+        radial-gradient(circle at bottom right, rgba(139,92,246,0.20), transparent 30%),
+        linear-gradient(135deg, var(--sky-1) 0%, var(--sky-2) 38%, var(--sky-3) 100%);
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .bg-shape {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(8px);
+      opacity: 0.65;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .shape-1 {
+      width: 260px;
+      height: 260px;
+      background: rgba(255, 209, 102, 0.38);
+      top: 8%;
+      left: -40px;
+    }
+
+    .shape-2 {
+      width: 300px;
+      height: 300px;
+      background: rgba(127, 231, 213, 0.35);
+      right: -60px;
+      top: 15%;
+    }
+
+    .shape-3 {
+      width: 220px;
+      height: 220px;
+      background: rgba(255,126,200,0.25);
+      bottom: 12%;
+      left: 12%;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px 18px 50px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(218,239,255,0.9));
+      border: 3px solid rgba(255,255,255,0.8);
+      border-radius: 32px;
+      padding: 40px 20px 30px;
+      box-shadow: 0 18px 40px var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(139,92,246,0.10);
+    }
+
+    .hero::before {
+      width: 240px;
+      height: 240px;
+      top: -110px;
+      right: -60px;
+    }
+
+    .hero::after {
+      width: 180px;
+      height: 180px;
+      bottom: -80px;
+      left: -40px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--pink), var(--purple));
+      color: white;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      font-size: 0.8rem;
+      box-shadow: 0 8px 16px rgba(130, 88, 214, 0.25);
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--blue-dark);
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 1.1;
+      letter-spacing: 0.04em;
+    }
+
+    .subtitle {
+      margin: 16px auto 0;
+      max-width: 700px;
+      font-size: 1.08rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      font-weight: 900;
+      padding: 16px 28px;
+      border-radius: 999px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 12px 18px rgba(29, 123, 181, 0.18);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 16px 22px rgba(29, 123, 181, 0.25);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--blue), var(--purple));
+      color: #fff;
+    }
+
+    .btn-secondary {
+      background: linear-gradient(135deg, var(--gold), #ffb703);
+      color: var(--text);
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 22px;
+      margin-top: 28px;
+    }
+
+    .card {
+      position: relative;
+      background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(240,250,255,0.9));
+      border: 2px solid rgba(255,255,255,0.8);
+      border-radius: 26px;
+      padding: 26px 18px 22px;
+      box-shadow: 0 16px 25px rgba(31,76,117,0.12);
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 35px rgba(31,76,117,0.18);
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      background: rgba(255,255,255,0.35);
+      border-radius: 50%;
+      top: -50px;
+      right: -30px;
+    }
+
+    .pet { border-top: 6px solid var(--pink); }
+    .couple { border-top: 6px solid var(--purple); }
+    .baby { border-top: 6px solid var(--mint); }
+
+    .art-icon {
+      font-size: 3rem;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .card h2 {
+      margin: 10px 0 8px;
+      color: var(--text);
+      font-size: 1.7rem;
+    }
+
+    .price {
+      color: var(--muted);
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin: 8px 0 18px;
+    }
+
+    .stats {
+      margin-top: 26px;
+      padding: 18px 20px;
+      background: rgba(255,255,255,0.72);
+      border: 2px solid rgba(255,255,255,0.8);
+      border-radius: 20px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      box-shadow: 0 12px 22px rgba(31,76,117,0.08);
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .stars {
+      color: var(--gold);
+      font-size: 1.2rem;
+      letter-spacing: 0.08em;
+    }
+
+    @media (max-width: 600px) {
+      .hero { padding: 30px 16px 22px; }
+      .card { padding: 22px 16px 18px; }
+      .btn { width: 100%; }
+      .hero-buttons { display: grid; grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-shape shape-1"></div>
+  <div class="bg-shape shape-2"></div>
+  <div class="bg-shape shape-3"></div>
+
+  <div class="container">
+    <header class="hero">
+      <div class="badge">HANDMADE BEAD PORTRAITS</div>
+      <h1>🩵 VEERU BEAD ART 🩵</h1>
+      <p class="subtitle">Your Photo → Beautiful Bead Art</p>
+      <div class="hero-buttons">
+        <a class="btn btn-primary" href="https://wa.me/94775035197">Order on WhatsApp</a>
+        <a class="btn btn-secondary" href="https://wa.me/94775035197">View Packages</a>
+      </div>
+    </header>
+
+    <section class="products">
+      <div class="card pet">
+        <span class="art-icon">🐶</span>
+        <h2>Pet Portrait</h2>
+        <p class="price">From R$ 149</p>
+        <a class="btn btn-primary" href="https://wa.me/94775035197">Order Pet</a>
+      </div>
+
+      <div class="card couple">
+        <span class="art-icon">💑</span>
+        <h2>Couple Portrait</h2>
+        <p class="price">From R$ 199</p>
+        <a class="btn btn-primary" href="https://wa.me/94775035197">Order Couple</a>
+      </div>
+
+      <div class="card baby">
+        <span class="art-icon">👶</span>
+        <h2>Baby Portrait</h2>
+        <p class="price">From R$ 249</p>
+        <a class="btn btn-primary" href="https://wa.me/94775035197">Order Baby</a>
+      </div>
+    </section>
+
+    <div class="stats">
+      <span class="stars">⭐ ⭐ ⭐ ⭐ ⭐</span>
+      <span>4.9 | 200+ Happy Customers</span>
+    </div>
+  </div>
+</body>
+</html>
