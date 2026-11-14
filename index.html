@@ -6,302 +6,347 @@
   <title>Veeru Bead Art</title>
   <style>
     :root {
-      --sky-1: #f5fbff;
-      --sky-2: #dff4ff;
-      --sky-3: #c9edff;
-      --pink: #ff7ec8;
-      --pink-dark: #ef5bb0;
-      --purple: #8b5cf6;
-      --purple-dark: #6d41d4;
-      --blue: #4ab3e0;
-      --blue-dark: #1d7fb5;
-      --mint: #7fe7d5;
-      --gold: #ffd166;
-      --text: #1d3557;
-      --muted: #456682;
-      --white: #ffffff;
-      --shadow: rgba(31, 76, 117, 0.16);
+      color-scheme: dark;
+      --bg: #080d0a;
+      --surface: #111a14;
+      --surface-2: #17231a;
+      --neon: #a6ff00;
+      --neon-bright: #c8ff4d;
+      --mint: #35f2a0;
+      --text: #f3ffe8;
+      --muted: #b6c8ad;
+      --line: rgba(166, 255, 0, 0.22);
+      --shadow: rgba(166, 255, 0, 0.13);
     }
 
     * { box-sizing: border-box; }
 
+    html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
       text-align: center;
+      font-family: Arial, sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at top left, rgba(255,126,200,0.25), transparent 22%),
-        radial-gradient(circle at bottom right, rgba(139,92,246,0.20), transparent 30%),
-        linear-gradient(135deg, var(--sky-1) 0%, var(--sky-2) 38%, var(--sky-3) 100%);
-      position: relative;
-      overflow-x: hidden;
+        radial-gradient(ellipse at 50% -10%, rgba(166,255,0,0.12), transparent 42%),
+        radial-gradient(ellipse at 100% 55%, rgba(53,242,160,0.08), transparent 35%),
+        var(--bg);
     }
 
-    .bg-shape {
+    .ambient {
       position: fixed;
-      border-radius: 50%;
-      filter: blur(8px);
-      opacity: 0.65;
       z-index: 0;
+      pointer-events: none;
+      border: 1px solid rgba(166,255,0,0.22);
+      border-radius: 50%;
+      box-shadow: 0 0 35px var(--shadow), inset 0 0 30px rgba(166,255,0,0.05);
+      animation: drift 12s ease-in-out infinite alternate;
+    }
+
+    .ambient-one { width: 280px; height: 280px; top: 10%; left: -150px; }
+    .ambient-two { width: 360px; height: 360px; right: -210px; top: 42%; animation-delay: -5s; }
+    .ambient-three { width: 190px; height: 190px; left: 12%; bottom: -100px; animation-delay: -8s; }
+
+    /* These neon beads move down the page as the visitor scrolls. Browsers
+       without scroll-driven animation still show the gently drifting beads. */
+    .bead-trail {
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: max(14px, calc((100% - 1120px) / 2 - 30px));
+      width: 10px;
+      height: 110px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, transparent, var(--neon), var(--mint), transparent);
+      filter: drop-shadow(0 0 8px var(--neon));
+      opacity: 0.8;
+      animation: bead-float 5s ease-in-out infinite alternate;
+      animation-timeline: scroll(root block);
+      animation-range: 0% 100%;
       pointer-events: none;
     }
 
-    .shape-1 {
-      width: 260px;
-      height: 260px;
-      background: rgba(255, 209, 102, 0.38);
-      top: 8%;
-      left: -40px;
+    .bead-trail::before,
+    .bead-trail::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      width: 11px;
+      height: 11px;
+      transform: translateX(-50%);
+      border-radius: 50%;
+      background: var(--neon-bright);
+      box-shadow: 0 0 8px var(--neon), 0 0 18px var(--neon);
     }
 
-    .shape-2 {
-      width: 300px;
-      height: 300px;
-      background: rgba(127, 231, 213, 0.35);
-      right: -60px;
-      top: 15%;
-    }
-
-    .shape-3 {
-      width: 220px;
-      height: 220px;
-      background: rgba(255,126,200,0.25);
-      bottom: 12%;
-      left: 12%;
-    }
+    .bead-trail::before { top: 25%; }
+    .bead-trail::after { top: 68%; background: var(--mint); }
 
     .container {
       position: relative;
-      z-index: 1;
-      max-width: 1100px;
+      z-index: 2;
+      width: min(1120px, 100%);
       margin: 0 auto;
-      padding: 24px 18px 50px;
+      padding: 26px 20px 70px;
     }
 
     .hero {
-      background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(218,239,255,0.9));
-      border: 3px solid rgba(255,255,255,0.8);
-      border-radius: 32px;
-      padding: 40px 20px 30px;
-      box-shadow: 0 18px 40px var(--shadow);
       position: relative;
       overflow: hidden;
+      padding: 58px 24px 48px;
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      background:
+        radial-gradient(circle at 85% 20%, rgba(166,255,0,0.13), transparent 28%),
+        linear-gradient(135deg, rgba(23,35,26,0.97), rgba(11,18,13,0.98));
+      box-shadow: 0 20px 70px rgba(0,0,0,0.35), 0 0 35px var(--shadow);
     }
 
     .hero::before,
     .hero::after {
       content: "";
       position: absolute;
+      border: 1px solid rgba(166,255,0,0.17);
       border-radius: 50%;
-      background: rgba(139,92,246,0.10);
+      pointer-events: none;
     }
 
-    .hero::before {
-      width: 240px;
-      height: 240px;
-      top: -110px;
-      right: -60px;
-    }
+    .hero::before { width: 300px; height: 300px; top: -190px; right: -80px; }
+    .hero::after { width: 210px; height: 210px; bottom: -150px; left: -40px; }
 
-    .hero::after {
-      width: 180px;
-      height: 180px;
-      bottom: -80px;
-      left: -40px;
-    }
-
-    .badge {
-      display: inline-block;
-      background: linear-gradient(135deg, var(--pink), var(--purple));
-      color: white;
-      padding: 10px 18px;
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 9px 15px;
+      border: 1px solid rgba(166,255,0,0.35);
       border-radius: 999px;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      font-size: 0.8rem;
-      box-shadow: 0 8px 16px rgba(130, 88, 214, 0.25);
-      margin-bottom: 18px;
+      background: rgba(166,255,0,0.08);
+      color: var(--neon-bright);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--neon);
+      box-shadow: 0 0 10px var(--neon);
     }
 
     h1 {
-      margin: 0;
-      color: var(--blue-dark);
-      font-size: clamp(2.2rem, 5vw, 4rem);
-      line-height: 1.1;
+      margin: 22px 0 0;
+      color: var(--neon-bright);
+      font-size: clamp(2.2rem, 6vw, 4.5rem);
+      line-height: 1.08;
       letter-spacing: 0.04em;
+      text-shadow: 0 0 24px rgba(166,255,0,0.28);
     }
 
     .subtitle {
-      margin: 16px auto 0;
-      max-width: 700px;
-      font-size: 1.08rem;
+      max-width: 650px;
+      margin: 17px auto 0;
       color: var(--muted);
-      line-height: 1.6;
+      font-size: clamp(1rem, 2.4vw, 1.2rem);
+      line-height: 1.65;
     }
 
     .hero-buttons {
       display: flex;
-      justify-content: center;
       flex-wrap: wrap;
+      justify-content: center;
       gap: 14px;
-      margin-top: 24px;
+      margin-top: 28px;
     }
 
     .btn {
       display: inline-block;
-      text-decoration: none;
-      font-weight: 900;
-      padding: 16px 28px;
+      padding: 15px 25px;
+      border: 1px solid transparent;
       border-radius: 999px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      box-shadow: 0 12px 18px rgba(29, 123, 181, 0.18);
+      font-weight: 900;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
     }
 
     .btn:hover {
-      transform: translateY(-2px) scale(1.02);
-      box-shadow: 0 16px 22px rgba(29, 123, 181, 0.25);
+      transform: translateY(-3px);
+      box-shadow: 0 0 25px rgba(166,255,0,0.35);
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, var(--blue), var(--purple));
-      color: #fff;
+      background: var(--neon);
+      color: #10170a;
+      box-shadow: 0 0 18px rgba(166,255,0,0.2);
     }
 
     .btn-secondary {
-      background: linear-gradient(135deg, var(--gold), #ffb703);
-      color: var(--text);
+      border-color: rgba(166,255,0,0.5);
+      background: rgba(166,255,0,0.06);
+      color: var(--neon-bright);
     }
+
+    .section-heading {
+      margin: 52px 0 8px;
+      color: var(--text);
+      font-size: clamp(1.7rem, 4vw, 2.4rem);
+    }
+
+    .section-note { margin: 0; color: var(--muted); }
 
     .products {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 22px;
-      margin-top: 28px;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
+      margin-top: 25px;
     }
 
     .card {
       position: relative;
-      background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(240,250,255,0.9));
-      border: 2px solid rgba(255,255,255,0.8);
-      border-radius: 26px;
-      padding: 26px 18px 22px;
-      box-shadow: 0 16px 25px rgba(31,76,117,0.12);
       overflow: hidden;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      padding: 28px 20px 24px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: linear-gradient(155deg, rgba(23,35,26,0.97), rgba(13,20,15,0.98));
+      box-shadow: 0 15px 35px rgba(0,0,0,0.24);
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
     }
 
     .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 24px 35px rgba(31,76,117,0.18);
+      transform: translateY(-7px);
+      border-color: rgba(166,255,0,0.65);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.3), 0 0 28px var(--shadow);
     }
 
-    .card::before {
+    .card::after {
       content: "";
       position: absolute;
-      width: 140px;
-      height: 140px;
-      background: rgba(255,255,255,0.35);
+      top: -60px;
+      right: -55px;
+      width: 150px;
+      height: 150px;
+      border: 1px solid rgba(166,255,0,0.14);
       border-radius: 50%;
-      top: -50px;
-      right: -30px;
+      box-shadow: 0 0 25px rgba(166,255,0,0.06);
     }
-
-    .pet { border-top: 6px solid var(--pink); }
-    .couple { border-top: 6px solid var(--purple); }
-    .baby { border-top: 6px solid var(--mint); }
 
     .art-icon {
-      font-size: 3rem;
-      margin-bottom: 8px;
-      display: block;
+      display: inline-grid;
+      width: 82px;
+      height: 82px;
+      place-items: center;
+      border: 1px solid rgba(166,255,0,0.38);
+      border-radius: 26px;
+      background: rgba(166,255,0,0.08);
+      font-size: 2.8rem;
+      box-shadow: inset 0 0 18px rgba(166,255,0,0.06), 0 0 18px rgba(166,255,0,0.08);
     }
 
-    .card h2 {
-      margin: 10px 0 8px;
-      color: var(--text);
-      font-size: 1.7rem;
-    }
+    .card h3 { margin: 18px 0 8px; font-size: 1.45rem; }
+    .price { margin: 0 0 21px; color: var(--neon-bright); font-size: 1.08rem; font-weight: 800; }
+    .card .btn { width: 100%; }
 
-    .price {
-      color: var(--muted);
-      font-size: 1.15rem;
-      font-weight: 700;
-      margin: 8px 0 18px;
-    }
-
-    .stats {
-      margin-top: 26px;
-      padding: 18px 20px;
-      background: rgba(255,255,255,0.72);
-      border: 2px solid rgba(255,255,255,0.8);
-      border-radius: 20px;
+    .trust {
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      flex-wrap: wrap;
       gap: 12px;
-      box-shadow: 0 12px 22px rgba(31,76,117,0.08);
-      font-weight: 700;
+      margin-top: 30px;
+      padding: 16px 21px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(17,26,20,0.85);
       color: var(--text);
     }
 
-    .stars {
-      color: var(--gold);
-      font-size: 1.2rem;
-      letter-spacing: 0.08em;
+    .stars { color: var(--neon); letter-spacing: 0.12em; }
+    footer { padding-top: 35px; color: #82927d; font-size: 0.9rem; }
+
+    @keyframes drift {
+      from { transform: translate3d(0, -20px, 0) rotate(0deg); }
+      to { transform: translate3d(35px, 50px, 0) rotate(24deg); }
+    }
+
+    @keyframes bead-float {
+      from { transform: translateY(0); }
+      to { transform: translateY(calc(100vh - 110px)); }
     }
 
     @media (max-width: 600px) {
-      .hero { padding: 30px 16px 22px; }
-      .card { padding: 22px 16px 18px; }
-      .btn { width: 100%; }
+      .container { padding: 14px 14px 48px; }
+      .hero { padding: 42px 17px 34px; border-radius: 24px; }
       .hero-buttons { display: grid; grid-template-columns: 1fr; }
+      .btn { width: 100%; }
+      .products { gap: 15px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="bg-shape shape-1"></div>
-  <div class="bg-shape shape-2"></div>
-  <div class="bg-shape shape-3"></div>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <div class="ambient ambient-three" aria-hidden="true"></div>
+  <div class="bead-trail" aria-hidden="true"></div>
 
-  <div class="container">
+  <main class="container">
     <header class="hero">
-      <div class="badge">HANDMADE BEAD PORTRAITS</div>
-      <h1>🩵 VEERU BEAD ART 🩵</h1>
-      <p class="subtitle">Your Photo → Beautiful Bead Art</p>
+      <span class="eyebrow">HANDMADE BEAD PORTRAITS</span>
+      <h1>🟢 VEERU BEAD ART 🟢</h1>
+      <p class="subtitle">Your photo, transformed into a one-of-a-kind work of bead art. Handmade with care and made to brighten your space.</p>
       <div class="hero-buttons">
         <a class="btn btn-primary" href="https://wa.me/94775035197">Order on WhatsApp</a>
-        <a class="btn btn-secondary" href="https://wa.me/94775035197">View Packages</a>
+        <a class="btn btn-secondary" href="#portraits">Explore portraits</a>
       </div>
     </header>
 
-    <section class="products">
-      <div class="card pet">
-        <span class="art-icon">🐶</span>
-        <h2>Pet Portrait</h2>
-        <p class="price">From R$ 149</p>
-        <a class="btn btn-primary" href="https://wa.me/94775035197">Order Pet</a>
-      </div>
+    <section id="portraits" aria-labelledby="portraits-heading">
+      <h2 class="section-heading" id="portraits-heading">Choose your portrait</h2>
+      <p class="section-note">A special handmade keepsake for someone you love.</p>
+      <div class="products">
+        <article class="card">
+          <span class="art-icon" aria-hidden="true">🐶</span>
+          <h3>Pet Portrait</h3>
+          <p class="price">From R$ 149</p>
+          <a class="btn btn-primary" href="https://wa.me/94775035197">Order Pet</a>
+        </article>
 
-      <div class="card couple">
-        <span class="art-icon">💑</span>
-        <h2>Couple Portrait</h2>
-        <p class="price">From R$ 199</p>
-        <a class="btn btn-primary" href="https://wa.me/94775035197">Order Couple</a>
-      </div>
+        <article class="card">
+          <span class="art-icon" aria-hidden="true">💑</span>
+          <h3>Couple Portrait</h3>
+          <p class="price">From R$ 199</p>
+          <a class="btn btn-primary" href="https://wa.me/94775035197">Order Couple</a>
+        </article>
 
-      <div class="card baby">
-        <span class="art-icon">👶</span>
-        <h2>Baby Portrait</h2>
-        <p class="price">From R$ 249</p>
-        <a class="btn btn-primary" href="https://wa.me/94775035197">Order Baby</a>
+        <article class="card">
+          <span class="art-icon" aria-hidden="true">👶</span>
+          <h3>Baby Portrait</h3>
+          <p class="price">From R$ 249</p>
+          <a class="btn btn-primary" href="https://wa.me/94775035197">Order Baby</a>
+        </article>
       </div>
     </section>
 
-    <div class="stats">
-      <span class="stars">⭐ ⭐ ⭐ ⭐ ⭐</span>
-      <span>4.9 | 200+ Happy Customers</span>
+    <div class="trust">
+      <span class="stars" aria-label="5 stars">★★★★★</span>
+      <span>4.9 rating · 200+ happy customers</span>
     </div>
-  </div>
+
+    <footer>Made with care, one bead at a time ✨</footer>
+  </main>
 </body>
 </html>
