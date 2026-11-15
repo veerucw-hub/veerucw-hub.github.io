@@ -22,7 +22,7 @@
     html { scroll-behavior: smooth; }
     body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
     a { color: inherit; }
-    .topbar { height: 74px; padding: 0 clamp(20px, 5vw, 78px); display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); background: rgba(244,242,238,.96); }
+    .topbar { height: 74px; padding: 0 clamp(20px, 5vw, 78px); display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); background: rgba(244,242,238,.92); position: sticky; top: 0; z-index: 10; backdrop-filter: blur(12px); }
     .wordmark { text-decoration: none; font-size: 1.28rem; font-weight: 800; letter-spacing: .17em; }
     .wordmark span { color: var(--accent); }
     .nav { display: flex; gap: clamp(18px, 3vw, 42px); align-items: center; font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
@@ -36,14 +36,14 @@
     .eyebrow { margin: 0 0 20px; font-size: .72rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
     h1 { max-width: 700px; margin: 0; font-family: var(--serif); font-size: clamp(3.2rem, 8vw, 7.5rem); font-weight: 400; line-height: .96; letter-spacing: -.045em; }
     .hero-copy { max-width: 435px; margin: 25px 0 30px; color: rgba(255,255,255,.88); font-size: 1.05rem; line-height: 1.65; }
-    .button { display: inline-flex; min-height: 50px; align-items: center; justify-content: center; padding: 0 23px; border: 1px solid transparent; background: var(--white); color: var(--ink); text-decoration: none; font-size: .73rem; font-weight: 800; letter-spacing: .11em; text-transform: uppercase; transition: background .2s, color .2s, transform .2s; cursor: pointer; }
+    .button { display: inline-flex; min-height: 50px; align-items: center; justify-content: center; padding: 0 23px; border: 1px solid transparent; background: var(--white); color: var(--ink); text-decoration: none; font-size: .75rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; transition: transform .2s ease, background .2s ease, color .2s ease; }
     .button:hover { transform: translateY(-2px); background: var(--accent); color: white; }
     .hero-index { position: absolute; right: clamp(24px, 5vw, 75px); bottom: 40px; z-index: 2; font-size: .7rem; letter-spacing: .15em; }
-    .intro { padding: 88px 24px 70px; text-align: center; }
+    .intro { padding: 88px 24px 70px; text-align: center; background: #f8e9e5; }
     .intro .eyebrow { color: var(--accent); }
     .intro h2, .section-title { margin: 0; font-family: var(--serif); font-size: clamp(2.2rem, 4vw, 3.8rem); font-weight: 400; letter-spacing: -.035em; }
     .intro p:last-child { max-width: 610px; margin: 18px auto 0; color: var(--muted); line-height: 1.75; }
-    .collection { padding: 35px clamp(20px, 6vw, 88px) 90px; }
+    .collection { padding: 65px clamp(20px, 6vw, 88px) 90px; background: #f4f2ee; }
     .collection-heading { display: flex; align-items: end; justify-content: space-between; gap: 20px; max-width: 1280px; margin: 0 auto 28px; }
     .collection-heading .eyebrow { margin-bottom: 12px; color: var(--accent); }
     .collection-heading > a { padding-bottom: 5px; font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-decoration: none; text-transform: uppercase; border-bottom: 1px solid var(--ink); }
@@ -56,16 +56,16 @@
     .card-info { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; padding: 17px 0 0; }
     .card h3 { margin: 0; font-family: var(--serif); font-size: 1.45rem; font-weight: 400; }
     .price { margin: 0; color: var(--muted); font-size: .84rem; white-space: nowrap; }
-    .card-link { display: inline-block; margin-top: 12px; font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-decoration: none; text-transform: uppercase; border-bottom: 1px solid var(--line); padding-bottom: 5px; }
-    .auto-showroom { padding: 76px clamp(20px, 6vw, 88px) 88px; background: #e8e6e1; }
+    .card-link { display: inline-block; margin-top: 12px; font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-decoration: none; text-transform: uppercase; border-bottom: 1px solid var(--line); }
+    .auto-showroom { padding: 76px clamp(20px, 6vw, 88px) 88px; background: #dff1ed; }
     .showroom-inner { max-width: 1280px; margin: 0 auto; }
-    .showroom-topline { display: flex; justify-content: space-between; gap: 20px; align-items: center; padding-bottom: 15px; border-bottom: 1px solid #c9c6bf; color: var(--muted); font-size: .68rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+    .showroom-topline { display: flex; justify-content: space-between; gap: 20px; align-items: center; padding-bottom: 15px; border-bottom: 1px solid #b8d5cf; color: var(--muted); font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
     .showroom-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; padding: 30px 0 34px; }
     .showroom-heading .eyebrow { margin-bottom: 12px; color: var(--accent); }
     .showroom-heading p:last-child { max-width: 380px; margin: 0 0 5px; color: var(--muted); font-size: .9rem; line-height: 1.6; }
     .showroom-title { margin: 0; font-family: var(--serif); font-size: clamp(2.7rem, 5.2vw, 5rem); font-weight: 400; letter-spacing: -.045em; line-height: 1; }
     .auto-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 15px; }
-    .auto-item { min-width: 0; background: var(--paper); }
+    .auto-item { min-width: 0; background: #fbf8f2; }
     .auto-visual { position: relative; display: grid; place-items: center; aspect-ratio: 1 / 1; padding: 17px; background: #f7f6f3; overflow: hidden; }
     .auto-visual svg { display: block; width: 100%; height: 100%; transition: transform .35s ease; }
     .auto-item:hover .auto-visual svg { transform: scale(1.04); }
@@ -77,15 +77,15 @@
     .auto-price { font-size: .82rem; font-weight: 700; }
     .shop-link { color: var(--ink); font-size: .63rem; font-weight: 800; letter-spacing: .08em; text-decoration: none; text-transform: uppercase; white-space: nowrap; }
     .shop-link:hover { color: var(--accent); }
-    .custom-design { padding: 90px 24px; background: #1d1d1b; color: #fff; }
+    .custom-design { padding: 90px 24px; background: #f7dce5; color: var(--ink); }
     .custom-inner { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(35px, 8vw, 110px); align-items: center; width: min(1100px, 100%); margin: 0 auto; }
-    .custom-copy .eyebrow { color: #d99a82; }
+    .custom-copy .eyebrow { color: #8d3f56; }
     .custom-copy h2 { margin: 0; font-family: var(--serif); font-size: clamp(2.8rem, 5vw, 5.1rem); font-weight: 400; line-height: 1; letter-spacing: -.045em; }
-    .custom-copy p:not(.eyebrow) { max-width: 430px; margin: 20px 0 0; color: #c9c6bf; line-height: 1.75; }
-    .custom-note { margin-top: 25px; padding-top: 18px; border-top: 1px solid #494844; color: #c9c6bf; font-size: .78rem; line-height: 1.6; }
-    .design-form { display: grid; gap: 15px; padding: clamp(22px, 4vw, 38px); background: #f4f2ee; color: var(--ink); }
+    .custom-copy p:not(.eyebrow) { max-width: 430px; margin: 20px 0 0; color: #55434a; line-height: 1.75; }
+    .custom-note { margin-top: 25px; padding-top: 18px; border-top: 1px solid #d6aebb; color: #55434a; font-size: .78rem; line-height: 1.6; }
+    .design-form { display: grid; gap: 15px; padding: clamp(22px, 4vw, 38px); background: #fff8f8; color: var(--ink); box-shadow: 0 16px 45px rgba(89, 49, 63, .1); }
     .design-form label { display: grid; gap: 8px; font-size: .67rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
-    .design-form input, .design-form select, .design-form textarea { width: 100%; min-height: 46px; padding: 12px; border: 1px solid #d2cfc8; border-radius: 0; background: #fff; color: var(--ink); font: 400 .9rem var(--sans); letter-spacing: normal; text-transform: none; }
+    .design-form input, .design-form select, .design-form textarea { width: 100%; min-height: 46px; padding: 12px; border: 1px solid #d2cfc8; border-radius: 0; background: #fff; color: var(--ink); font: inherit; }
     .design-form textarea { min-height: 100px; resize: vertical; }
     .design-form input:focus, .design-form select:focus, .design-form textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
     .design-form .button { width: 100%; background: var(--ink); color: #fff; }
@@ -98,10 +98,10 @@
     .process-copy h2 { margin: 0; font-family: var(--serif); font-size: clamp(2.4rem, 4.5vw, 4.6rem); font-weight: 400; line-height: 1.05; letter-spacing: -.04em; }
     .process-copy p:not(.eyebrow) { margin: 20px 0 25px; color: var(--muted); line-height: 1.75; }
     .button-dark { background: var(--ink); color: white; }
-    .trust { padding: 78px 24px; text-align: center; }
+    .trust { padding: 78px 24px; text-align: center; background: #fff0d9; }
     .trust .stars { color: var(--accent); letter-spacing: .2em; }
     .trust p { margin: 13px 0 0; color: var(--muted); font-size: .9rem; }
-    footer { display: flex; justify-content: space-between; gap: 20px; padding: 25px clamp(20px, 5vw, 78px); border-top: 1px solid var(--line); color: var(--muted); font-size: .75rem; }
+    footer { display: flex; justify-content: space-between; gap: 20px; padding: 25px clamp(20px, 5vw, 78px); border-top: 1px solid var(--line); color: var(--muted); font-size: .75rem; background: #e8e1f3; }
     footer strong { color: var(--ink); letter-spacing: .14em; }
     @media (max-width: 980px) {
       .products { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -116,7 +116,7 @@
       .hero-content { padding: 60px 25px 90px; }
       .hero-index { bottom: 25px; }
       .intro { padding: 65px 24px 45px; }
-      .collection { padding: 35px 20px 65px; }
+      .collection { padding: 45px 20px 65px; }
       .products { grid-template-columns: 1fr; gap: 35px; }
       .card-image-wrap { aspect-ratio: 4 / 3.7; }
       .collection-heading { align-items: start; }
@@ -218,43 +218,43 @@
             <div class="auto-visual">
               <span class="auto-label">01 / TURBO</span>
               <svg viewBox="0 0 200 160" role="img" aria-label="Blue Turbo car bead charm illustration">
-                <rect x="10" y="84" width="176" height="34" fill="#0f4b99"/><rect x="40" y="54" width="92" height="28" fill="#0f4b99"/><rect x="58" y="42" width="26" height="14" fill="#0c3b7f"/><rect x="103" y="42" width="18" height="14" fill="#0c3b7f"/>
-                <rect x="16" y="94" width="14" height="10" fill="#90cdf9"/><rect x="28" y="94" width="14" height="10" fill="#90cdf9"/><rect x="122" y="94" width="14" height="10" fill="#90cdf9"/><rect x="134" y="94" width="14" height="10" fill="#90cdf9"/><rect x="86" y="82" width="72" height="8" fill="#d7d7d7"/><rect x="76" y="88" width="86" height="8" fill="#d7d7d7"/>
-                <rect x="28" y="68" width="16" height="18" fill="#f4f4f4"/><rect x="44" y="68" width="16" height="18" fill="#f4f4f4"/><rect x="78" y="68" width="16" height="18" fill="#f4f4f4"/><rect x="94" y="68" width="18" height="18" fill="#f4f4f4"/><rect x="116" y="68" width="14" height="18" fill="#f4f4f4"/><rect x="134" y="68" width="14" height="18" fill="#f4f4f4"/>
-                <text x="98" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="900" fill="#fff" letter-spacing="1.5">TURBO</text><circle cx="34" cy="118" r="10" fill="#000"/><circle cx="144" cy="118" r="10" fill="#000"/><circle cx="34" cy="118" r="4" fill="#c2a45c"/><circle cx="144" cy="118" r="4" fill="#c2a45c"/>
+                <rect x="10" y="84" width="176" height="34" fill="#0f4b99"/><rect x="40" y="54" width="92" height="28" fill="#0f4b99"/><rect x="58" y="42" width="26" height="14" fill="#0c3b7f"/><rect x="84" y="42" width="36" height="14" fill="#0c3b7f"/>
+                <rect x="16" y="94" width="14" height="10" fill="#90cdf9"/><rect x="28" y="94" width="14" height="10" fill="#90cdf9"/><rect x="122" y="94" width="14" height="10" fill="#90cdf9"/><rect x="136" y="94" width="14" height="10" fill="#90cdf9"/>
+                <rect x="28" y="68" width="16" height="18" fill="#f4f4f4"/><rect x="44" y="68" width="16" height="18" fill="#f4f4f4"/><rect x="78" y="68" width="16" height="18" fill="#f4f4f4"/><rect x="94" y="68" width="20" height="18" fill="#f4f4f4"/>
+                <text x="98" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="900" fill="#fff" letter-spacing="1.5">TURBO</text><circle cx="34" cy="118" r="10" fill="#111"/><circle cx="154" cy="118" r="10" fill="#111"/><circle cx="34" cy="118" r="4" fill="#ddd"/><circle cx="154" cy="118" r="4" fill="#ddd"/>
               </svg>
             </div>
-            <div class="auto-details"><h3>Turbo Blue</h3><p>Blue pixel car charm</p><div class="auto-buy"><span class="auto-price">From R$ 279</span><a class="shop-link" href="https://wa.me/94775035197?text=Hi%20Beadora%2C%20I%27d%20like%20to%20order%20the%20Turbo%20Blue%20car%20charm%20(from%20R%24%20279).">Shop this design&nbsp; ↗</a></div></div>
+            <div class="auto-details"><h3>Turbo Blue</h3><p>Blue pixel car charm</p><div class="auto-buy"><span class="auto-price">From R$ 279</span><a class="shop-link" href="https://wa.me/94775035197">Order this charm ↗</a></div></div>
           </article>
           <article class="auto-item">
             <div class="auto-visual">
               <span class="auto-label">02 / RACE</span>
               <svg viewBox="0 0 200 160" role="img" aria-label="Green Race car bead charm illustration">
-                <rect x="14" y="86" width="168" height="36" fill="#2d9d52"/><rect x="48" y="54" width="82" height="28" fill="#2d9d52"/><rect x="36" y="84" width="16" height="16" fill="#dcecf2"/><rect x="56" y="84" width="16" height="16" fill="#dcecf2"/><rect x="116" y="84" width="16" height="16" fill="#dcecf2"/><rect x="136" y="84" width="16" height="16" fill="#dcecf2"/><rect x="30" y="68" width="26" height="18" fill="#dcecf2"/><rect x="60" y="68" width="26" height="18" fill="#dcecf2"/><rect x="100" y="68" width="26" height="18" fill="#dcecf2"/><rect x="130" y="68" width="26" height="18" fill="#dcecf2"/>
-                <text x="100" y="112" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="900" fill="#fff">RACE</text><circle cx="34" cy="120" r="10" fill="#000"/><circle cx="150" cy="120" r="10" fill="#000"/><circle cx="34" cy="120" r="4" fill="#c2a45c"/><circle cx="150" cy="120" r="4" fill="#c2a45c"/><rect x="16" y="60" width="10" height="10" fill="#ff7ab6"/><rect x="90" y="58" width="10" height="10" fill="#ff7ab6"/>
+                <rect x="14" y="86" width="168" height="36" fill="#2d9d52"/><rect x="48" y="54" width="82" height="28" fill="#2d9d52"/><rect x="36" y="84" width="16" height="16" fill="#dcecf2"/><rect x="56" y="64" width="28" height="18" fill="#dcecf2"/><rect x="88" y="64" width="30" height="18" fill="#dcecf2"/>
+                <text x="100" y="112" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="900" fill="#fff">RACE</text><circle cx="34" cy="120" r="10" fill="#000"/><circle cx="154" cy="120" r="10" fill="#000"/><circle cx="34" cy="120" r="4" fill="#ddd"/><circle cx="154" cy="120" r="4" fill="#ddd"/>
               </svg>
             </div>
-            <div class="auto-details"><h3>Race Green</h3><p>Green racing car charm</p><div class="auto-buy"><span class="auto-price">From R$ 279</span><a class="shop-link" href="https://wa.me/94775035197?text=Hi%20Beadora%2C%20I%27d%20like%20to%20order%20the%20Race%20Green%20car%20charm%20(from%20R%24%20279).">Shop this design&nbsp; ↗</a></div></div>
+            <div class="auto-details"><h3>Race Green</h3><p>Green racing car charm</p><div class="auto-buy"><span class="auto-price">From R$ 279</span><a class="shop-link" href="https://wa.me/94775035197">Order this charm ↗</a></div></div>
           </article>
           <article class="auto-item">
             <div class="auto-visual">
               <span class="auto-label">03 / FAST</span>
               <svg viewBox="0 0 200 160" role="img" aria-label="Red Fast car bead charm illustration">
-                <rect x="18" y="88" width="168" height="34" fill="#d53030"/><rect x="50" y="56" width="74" height="28" fill="#d53030"/><rect x="66" y="44" width="18" height="12" fill="#d53030"/><rect x="88" y="44" width="18" height="12" fill="#d53030"/><rect x="26" y="66" width="20" height="18" fill="#fff"/><rect x="54" y="66" width="20" height="18" fill="#fff"/><rect x="118" y="66" width="20" height="18" fill="#fff"/><rect x="146" y="66" width="20" height="18" fill="#fff"/>
-                <text x="100" y="112" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="#fff">FAST</text><circle cx="34" cy="122" r="10" fill="#000"/><circle cx="146" cy="122" r="10" fill="#000"/><circle cx="34" cy="122" r="4" fill="#c2a45c"/><circle cx="146" cy="122" r="4" fill="#c2a45c"/><rect x="42" y="48" width="10" height="10" fill="#ffb703"/><rect x="80" y="48" width="10" height="10" fill="#ffb703"/>
+                <rect x="18" y="88" width="168" height="34" fill="#d53030"/><rect x="50" y="56" width="74" height="28" fill="#d53030"/><rect x="66" y="44" width="18" height="12" fill="#d53030"/><rect x="84" y="44" width="28" height="12" fill="#d53030"/><rect x="62" y="64" width="24" height="16" fill="#e9f4f8"/><rect x="90" y="64" width="26" height="16" fill="#e9f4f8"/>
+                <text x="100" y="112" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="#fff">FAST</text><circle cx="34" cy="122" r="10" fill="#000"/><circle cx="154" cy="122" r="10" fill="#000"/><circle cx="34" cy="122" r="4" fill="#ddd"/><circle cx="154" cy="122" r="4" fill="#ddd"/>
               </svg>
             </div>
-            <div class="auto-details"><h3>Fast Red</h3><p>Red speedster car charm</p><div class="auto-buy"><span class="auto-price">From R$ 279</span><a class="shop-link" href="https://wa.me/94775035197?text=Hi%20Beadora%2C%20I%27d%20like%20to%20order%20the%20Fast%20Red%20car%20charm%20(from%20R%24%20279).">Shop this design&nbsp; ↗</a></div></div>
+            <div class="auto-details"><h3>Fast Red</h3><p>Red speedster car charm</p><div class="auto-buy"><span class="auto-price">From R$ 279</span><a class="shop-link" href="https://wa.me/94775035197">Order this charm ↗</a></div></div>
           </article>
           <article class="auto-item">
             <div class="auto-visual">
               <span class="auto-label">04 / Y8</span>
               <svg viewBox="0 0 200 160" role="img" aria-label="Black and white Y8 car bead charm illustration">
-                <g fill="#000"><rect x="22" y="30" width="154" height="92" rx="18"/><circle cx="34" cy="36" r="8"/><circle cx="164" cy="36" r="8"/><circle cx="34" cy="104" r="8"/><circle cx="164" cy="104" r="8"/></g><g fill="#fff"><rect x="34" y="42" width="18" height="18"/><rect x="56" y="42" width="18" height="18"/><rect x="78" y="42" width="18" height="18"/><rect x="100" y="42" width="18" height="18"/><rect x="122" y="42" width="18" height="18"/><rect x="144" y="42" width="18" height="18"/><rect x="34" y="60" width="18" height="18"/><rect x="56" y="60" width="18" height="18"/><rect x="78" y="60" width="18" height="18"/><rect x="100" y="60" width="18" height="18"/><rect x="122" y="60" width="18" height="18"/><rect x="144" y="60" width="18" height="18"/><rect x="34" y="78" width="18" height="18"/><rect x="56" y="78" width="18" height="18"/><rect x="78" y="78" width="18" height="18"/><rect x="100" y="78" width="18" height="18"/><rect x="122" y="78" width="18" height="18"/><rect x="144" y="78" width="18" height="18"/></g>
-                <text x="100" y="84" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="900" fill="#111">Y8</text><circle cx="52" cy="74" r="9" fill="#ff5da9"/><circle cx="148" cy="74" r="9" fill="#ff5da9"/><rect x="56" y="92" width="88" height="10" fill="#ff5da9"/>
+                <g fill="#000"><rect x="22" y="30" width="154" height="92" rx="18"/><circle cx="34" cy="36" r="8"/><circle cx="164" cy="36" r="8"/><circle cx="34" cy="104" r="8"/><circle cx="164" cy="104" r="8"/></g>
+                <text x="100" y="84" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="900" fill="#111">Y8</text><circle cx="52" cy="74" r="9" fill="#ff5da9"/><circle cx="148" cy="74" r="9" fill="#5cc8ff"/><rect x="60" y="94" width="80" height="10" fill="#ffce42"/>
               </svg>
             </div>
-            <div class="auto-details"><h3>Y8 Classic</h3><p>Classic pixel car charm</p><div class="auto-buy"><span class="auto-price">From R$ 279</span><a class="shop-link" href="https://wa.me/94775035197?text=Hi%20Beadora%2C%20I%27d%20like%20to%20order%20the%20Y8%20Classic%20car%20charm%20(from%20R%24%20279).">Shop this design&nbsp; ↗</a></div></div>
+            <div class="auto-details"><h3>Y8 Classic</h3><p>Classic pixel car charm</p><div class="auto-buy"><span class="auto-price">From R$ 279</span><a class="shop-link" href="https://wa.me/94775035197">Order this charm ↗</a></div></div>
           </article>
         </div>
       </div>
