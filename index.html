@@ -67,14 +67,35 @@
     }
 
     .wordmark {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.05em;
       text-decoration: none;
-      font-size: 1.28rem;
+      font-size: 1.18rem;
       font-weight: 800;
-      letter-spacing: 0.17em;
+      letter-spacing: 0.2em;
+      line-height: 1;
+      text-transform: uppercase;
+      font-family: var(--sans);
     }
 
-    .wordmark span {
+    .wordmark .brand-first,
+    .wordmark .brand-last,
+    .footer-brand .brand-first,
+    .footer-brand .brand-last {
+      display: inline-block;
+      transform: translateY(-1px);
+    }
+
+    .wordmark .brand-mark,
+    .footer-brand .brand-mark {
+      display: inline-block;
       color: var(--accent);
+      font-family: var(--serif);
+      font-size: 1.5em;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      transform: translateY(-2px);
     }
 
     .nav {
@@ -667,9 +688,15 @@
       background: rgba(255, 255, 255, 0.2);
     }
 
-    footer strong {
+    .footer-brand {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.04em;
       color: var(--ink);
+      font-size: 0.72rem;
       letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 800;
     }
 
     @media (max-width: 980px) {
@@ -681,6 +708,7 @@
     @media (max-width: 720px) {
       .topbar { height: 64px; }
       .nav a:not(.nav-order) { display: none; }
+      .wordmark { font-size: 0.95rem; }
       .hero { min-height: 610px; min-height: 78svh; }
       .hero-image { object-position: 58% center; }
       .hero-content { padding: 60px 25px 90px; }
@@ -718,7 +746,7 @@
 </head>
 <body>
   <header class="topbar">
-    <a class="wordmark" href="#home" aria-label="Beadora home">BEA<span>D</span>ORA</a>
+    <a class="wordmark" href="#home" aria-label="Beadora home"><span class="brand-first">BEA</span><span class="brand-mark">D</span><span class="brand-last">ORA</span></a>
     <nav class="nav" aria-label="Main navigation">
       <a href="#portraits">Portraits</a>
       <a href="#auto-lover">Auto lover</a>
@@ -774,7 +802,7 @@
           <div class="card-info">
             <h3>Couple portrait</h3>
           </div>
-          <a class="card-link" href="https://wa.me/94775035197?text=Hi%20Beadora%2C%20I%27d%20like%20to%20order%20a%20couple%20portrait." target="_blank" rel="noopener noreferrer">Make one for someone you love&nbsp;↗</a>
+          <a class="card-link" href="https://wa.me/94775035197?text=Hi%20Beadora%2C%20I%27d%20like%20to%20order%20a%20couple%20portrait." target="_blank" rel="noopener noreferrer">Make one for someone special&nbsp;↗</a>
         </article>
 
         <article class="card">
@@ -785,7 +813,7 @@
           <div class="card-info">
             <h3>Family portrait</h3>
           </div>
-          <a class="card-link" href="https://wa.me/94775035197?text=Hi%20Beadora%2C%20I%27d%20like%20to%20ask%20about%20a%20family%20portrait." target="_blank" rel="noopener noreferrer">Celebrate your people&nbsp;↗</a>
+          <a class="card-link" href="https://wa.me/94775035197?text=Hi%20Beadora%2C%20I%27d%20like%20to%20ask%20about%20a%20family%20portrait." target="_blank" rel="noopener noreferrer">Celebrate your memories&nbsp;↗</a>
         </article>
       </div>
     </section>
@@ -948,7 +976,7 @@
   </main>
 
   <footer>
-    <strong>BEADORA</strong>
+    <strong class="footer-brand"><span class="brand-first">BEA</span><span class="brand-mark">D</span><span class="brand-last">ORA</span></strong>
     <span>Made with care, one bead at a time&nbsp; ✨</span>
     <span>© 2026 Beadora</span>
   </footer>
