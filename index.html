@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f8e9e5">
   <meta name="description" content="Beadora turns your favorite photos and ideas into one-of-a-kind handmade bead art.">
+  <meta property="og:title" content="Beadora — A portrait, made by hand">
+  <meta property="og:description" content="Beadora turns your favorite photos and ideas into one-of-a-kind handmade bead art.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://veerucw-hub.github.io/">
+  <meta property="og:image" content="https://veerucw-hub.github.io/905978022_1008658248246153_5947324095750337213_n.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://veerucw-hub.github.io/">
   <title>Beadora — A portrait, made by hand</title>
   <style>
     :root {
@@ -15,101 +22,683 @@
       --line: #d7d4ce;
       --accent: #a74b32;
       --white: #fff;
+      --rose: #f7dce5;
+      --sage: #dff1ed;
       --serif: Georgia, 'Times New Roman', serif;
       --sans: Arial, Helvetica, sans-serif;
     }
+
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { margin: 0; min-height: 100vh; background: linear-gradient(135deg, #fff1e8 0%, #f7e9f4 48%, #e5f4ef 100%) fixed; color: var(--ink); font-family: var(--sans); }
-    a { color: inherit; }
-    .topbar { position: sticky; top: 0; z-index: 10; height: 74px; padding: 0 clamp(20px, 5vw, 78px); display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,.65); background: rgba(255,255,255,.58); backdrop-filter: blur(18px) saturate(150%); -webkit-backdrop-filter: blur(18px) saturate(150%); box-shadow: 0 8px 28px rgba(67,50,59,.07); }
-    .wordmark { text-decoration: none; font-size: 1.28rem; font-weight: 800; letter-spacing: .17em; }
-    .wordmark span { color: var(--accent); }
-    .nav { display: flex; gap: clamp(18px, 3vw, 42px); align-items: center; font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
-    .nav a { text-decoration: none; transition: color .2s ease, transform .2s ease; }
-    .nav a:hover { color: var(--accent); }
-    .nav .nav-order { padding: 12px 17px; border: 1px solid rgba(23,23,21,.55); border-radius: 999px; }
-    .hero { min-height: min(690px, 75vw); position: relative; display: flex; align-items: flex-end; color: white; overflow: hidden; background: #373630; }
-    .hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,0,0,.68), rgba(0,0,0,.13) 72%), linear-gradient(0deg, rgba(0,0,0,.3), transparent 55%); z-index: 1; }
-    .hero-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 45%; }
-    .hero-content { position: relative; z-index: 2; width: min(1200px, 100%); margin: 0 auto; padding: 90px clamp(24px, 7vw, 100px); }
-    .eyebrow { margin: 0 0 20px; font-size: .72rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
-    h1 { max-width: 700px; margin: 0; font-family: var(--serif); font-size: clamp(3.2rem, 8vw, 7.5rem); font-weight: 400; line-height: .96; letter-spacing: -.045em; }
-    .hero-copy { max-width: 435px; margin: 25px 0 30px; color: rgba(255,255,255,.88); font-size: 1.05rem; line-height: 1.65; }
-    .button { display: inline-flex; min-height: 50px; align-items: center; justify-content: center; padding: 0 23px; border: 1px solid transparent; border-radius: 999px; background: var(--white); color: var(--ink); text-decoration: none; font-size: .75rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; box-shadow: 0 8px 22px rgba(25,20,20,.14); transition: transform .22s ease, background .22s ease, color .22s ease, box-shadow .22s ease; }
-    .button:hover { transform: translateY(-3px); background: var(--accent); color: white; box-shadow: 0 12px 26px rgba(167,75,50,.28); }
-    .hero-index { position: absolute; right: clamp(24px, 5vw, 75px); bottom: 40px; z-index: 2; font-size: .7rem; letter-spacing: .15em; }
-    .intro { padding: 88px 24px 70px; text-align: center; background: #f8e9e5; }
-    .intro .eyebrow { color: var(--accent); }
-    .intro h2, .section-title { margin: 0; font-family: var(--serif); font-size: clamp(2.2rem, 4vw, 3.8rem); font-weight: 400; letter-spacing: -.035em; }
-    .intro p:last-child { max-width: 610px; margin: 18px auto 0; color: var(--muted); line-height: 1.75; }
-    .collection { padding: 65px clamp(20px, 6vw, 88px) 90px; background: rgba(255,255,255,.28); }
-    .collection-heading { display: flex; align-items: end; justify-content: space-between; gap: 20px; max-width: 1280px; margin: 0 auto 28px; }
-    .collection-heading .eyebrow { margin-bottom: 12px; color: var(--accent); }
-    .collection-heading > a { padding-bottom: 5px; font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-decoration: none; text-transform: uppercase; border-bottom: 1px solid var(--ink); }
-    .products { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; max-width: 1280px; margin: 0 auto; }
-    .card { min-width: 0; padding: 12px 12px 18px; border: 1px solid rgba(255,255,255,.8); border-radius: 22px; background: rgba(255,255,255,.64); box-shadow: 0 10px 30px rgba(83,63,71,.08); transition: transform .25s ease, box-shadow .25s ease; }
-    .card:hover { transform: translateY(-6px); box-shadow: 0 18px 38px rgba(83,63,71,.15); }
-    .card-image-wrap { position: relative; overflow: hidden; border-radius: 15px; background: #dedbd4; aspect-ratio: 4 / 4.7; }
-    .card img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
-    .card:hover img { transform: scale(1.045); }
-    .card-number { position: absolute; top: 14px; left: 15px; padding: 8px 10px; border-radius: 999px; background: rgba(255,255,255,.9); font-size: .65rem; letter-spacing: .12em; }
-    .card-info { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; padding: 17px 3px 0; }
-    .card h3 { margin: 0; font-family: var(--serif); font-size: 1.45rem; font-weight: 400; }
-    .price { margin: 0; color: var(--muted); font-size: .84rem; white-space: nowrap; }
-    .card-link { display: inline-block; margin: 12px 3px 0; color: var(--accent); font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-decoration: none; text-transform: uppercase; border-bottom: 1px solid rgba(167,75,50,.35); }
-    .auto-showroom { padding: 76px clamp(20px, 6vw, 88px) 88px; background: #dff1ed; }
-    .showroom-inner { max-width: 1280px; margin: 0 auto; }
-    .showroom-topline { display: flex; justify-content: space-between; gap: 20px; align-items: center; padding-bottom: 15px; border-bottom: 1px solid #b8d5cf; color: var(--muted); font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
-    .showroom-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; padding: 30px 0 34px; }
-    .showroom-heading .eyebrow { margin-bottom: 12px; color: var(--accent); }
-    .showroom-heading p:last-child { max-width: 380px; margin: 0 0 5px; color: var(--muted); font-size: .9rem; line-height: 1.6; }
-    .showroom-title { margin: 0; font-family: var(--serif); font-size: clamp(2.7rem, 5.2vw, 5rem); font-weight: 400; letter-spacing: -.045em; line-height: 1; }
-    .auto-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 17px; }
-    .auto-item { min-width: 0; overflow: hidden; border: 1px solid rgba(255,255,255,.85); border-radius: 20px; background: #fbf8f2; box-shadow: 0 9px 24px rgba(48,85,75,.08); transition: transform .25s ease, box-shadow .25s ease; }
-    .auto-item:hover { transform: translateY(-5px); box-shadow: 0 16px 30px rgba(48,85,75,.16); }
-    .auto-visual { position: relative; display: grid; place-items: center; aspect-ratio: 1 / 1; padding: 17px; background: #f7f6f3; overflow: hidden; }
-    .auto-visual svg { display: block; width: 100%; height: 100%; transition: transform .35s ease; }
-    .auto-item:hover .auto-visual svg { transform: scale(1.04); }
-    .auto-label { position: absolute; top: 12px; left: 12px; padding: 7px 9px; border-radius: 999px; background: white; font-size: .61rem; font-weight: 700; letter-spacing: .12em; }
-    .auto-details { padding: 17px 16px 18px; }
-    .auto-details h3 { margin: 0; font-family: var(--serif); font-size: 1.3rem; font-weight: 400; }
-    .auto-details p { margin: 8px 0 16px; color: var(--muted); font-size: .8rem; }
-    .auto-buy { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding-top: 12px; border-top: 1px solid var(--line); }
-    .auto-price { font-size: .82rem; font-weight: 700; }
-    .shop-link { color: var(--ink); font-size: .63rem; font-weight: 800; letter-spacing: .08em; text-decoration: none; text-transform: uppercase; white-space: nowrap; }
-    .shop-link:hover { color: var(--accent); }
-    .custom-design { padding: 90px 24px; background: #f7dce5; color: var(--ink); }
-    .custom-inner { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(35px, 8vw, 110px); align-items: center; width: min(1100px, 100%); margin: 0 auto; }
-    .custom-copy .eyebrow { color: #8d3f56; }
-    .custom-copy h2 { margin: 0; font-family: var(--serif); font-size: clamp(2.8rem, 5vw, 5.1rem); font-weight: 400; line-height: 1; letter-spacing: -.045em; }
-    .custom-copy p:not(.eyebrow) { max-width: 430px; margin: 20px 0 0; color: #55434a; line-height: 1.75; }
-    .custom-note { margin-top: 25px; padding-top: 18px; border-top: 1px solid #d6aebb; color: #55434a; font-size: .78rem; line-height: 1.6; }
-    .design-form { display: grid; gap: 15px; padding: clamp(22px, 4vw, 38px); border: 1px solid rgba(255,255,255,.85); border-radius: 22px; background: #fff8f8; color: var(--ink); box-shadow: 0 16px 45px rgba(89, 49, 63, .12); }
-    .design-form label { display: grid; gap: 8px; font-size: .67rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
-    .design-form input, .design-form select, .design-form textarea { width: 100%; min-height: 46px; padding: 12px; border: 1px solid #d2cfc8; border-radius: 10px; background: #fff; color: var(--ink); font: inherit; }
-    .design-form textarea { min-height: 100px; resize: vertical; }
-    .design-form input:focus, .design-form select:focus, .design-form textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
-    .design-form .button { width: 100%; background: var(--ink); color: #fff; }
-    .design-form .button:hover { background: var(--accent); }
-    .form-help { margin: -4px 0 0; color: var(--muted); font-size: .73rem; line-height: 1.5; }
-    .process { display: grid; grid-template-columns: 1fr 1fr; min-height: 460px; background: rgba(231,228,222,.86); }
-    .process-image { width: 100%; height: 100%; min-height: 380px; object-fit: cover; }
-    .process-copy { align-self: center; max-width: 600px; padding: 65px clamp(28px, 7vw, 95px); }
-    .process-copy .eyebrow { color: var(--accent); }
-    .process-copy h2 { margin: 0; font-family: var(--serif); font-size: clamp(2.4rem, 4.5vw, 4.6rem); font-weight: 400; line-height: 1.05; letter-spacing: -.04em; }
-    .process-copy p:not(.eyebrow) { margin: 20px 0 25px; color: var(--muted); line-height: 1.75; }
-    .button-dark { background: var(--ink); color: white; }
-    .trust { padding: 78px 24px; text-align: center; background: #fff0d9; }
-    .trust .stars { color: var(--accent); letter-spacing: .2em; }
-    .trust p { margin: 13px 0 0; color: var(--muted); font-size: .9rem; }
-    footer { display: flex; justify-content: space-between; gap: 20px; padding: 25px clamp(20px, 5vw, 78px); border-top: 1px solid rgba(255,255,255,.75); color: var(--muted); font-size: .75rem; background: rgba(232,225,243,.88); }
-    footer strong { color: var(--ink); letter-spacing: .14em; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #fff1e8 0%, #f7e9f4 48%, #e5f4ef 100%) fixed;
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      height: 74px;
+      padding: 0 clamp(20px, 5vw, 78px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(23, 23, 21, 0.12);
+      backdrop-filter: blur(12px);
+      background: rgba(244, 242, 238, 0.88);
+    }
+
+    .wordmark {
+      text-decoration: none;
+      font-size: 1.28rem;
+      font-weight: 800;
+      letter-spacing: 0.17em;
+    }
+
+    .wordmark span {
+      color: var(--accent);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: clamp(18px, 3vw, 42px);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .nav a {
+      text-decoration: none;
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+
+    .nav a:hover,
+    .nav a:focus-visible {
+      color: var(--accent);
+    }
+
+    .nav .nav-order {
+      padding: 12px 17px;
+      border: 1px solid rgba(23, 23, 21, 0.55);
+      border-radius: 999px;
+    }
+
+    .hero {
+      position: relative;
+      min-height: min(690px, 75vw);
+      display: flex;
+      align-items: flex-end;
+      color: white;
+      overflow: hidden;
+      background: #373630;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(0, 0, 0, 0.68), rgba(0, 0, 0, 0.13) 72%), linear-gradient(0deg, rgba(0, 0, 0, 0.3), transparent 55%);
+      z-index: 1;
+    }
+
+    .hero-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 45%;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: min(1200px, 100%);
+      margin: 0 auto;
+      padding: 90px clamp(24px, 7vw, 100px);
+    }
+
+    .eyebrow {
+      margin: 0 0 20px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 700px;
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(3.2rem, 8vw, 7.5rem);
+      font-weight: 400;
+      line-height: 0.96;
+      letter-spacing: -0.045em;
+    }
+
+    .hero-copy {
+      max-width: 435px;
+      margin: 25px 0 30px;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 1.05rem;
+      line-height: 1.65;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 23px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      background: var(--white);
+      color: var(--ink);
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-3px);
+      background: var(--accent);
+      color: white;
+      box-shadow: 0 12px 26px rgba(167, 75, 50, 0.28);
+    }
+
+    .button-dark {
+      background: var(--ink);
+      color: white;
+    }
+
+    .button-dark:hover,
+    .button-dark:focus-visible {
+      background: var(--accent);
+    }
+
+    .hero-index {
+      position: absolute;
+      right: clamp(24px, 5vw, 75px);
+      bottom: 40px;
+      z-index: 2;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+    }
+
+    .intro {
+      padding: 88px 24px 70px;
+      text-align: center;
+      background: #f8e9e5;
+    }
+
+    .intro .eyebrow {
+      color: var(--accent);
+    }
+
+    .intro h2,
+    .section-title {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 4vw, 3.8rem);
+      font-weight: 400;
+      letter-spacing: -0.035em;
+    }
+
+    .intro p:last-child {
+      max-width: 610px;
+      margin: 18px auto 0;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .collection {
+      padding: 65px clamp(20px, 6vw, 88px) 90px;
+      background: rgba(255, 255, 255, 0.28);
+    }
+
+    .collection-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      max-width: 1280px;
+      margin: 0 auto 28px;
+    }
+
+    .collection-heading .eyebrow {
+      margin-bottom: 12px;
+      color: var(--accent);
+    }
+
+    .collection-heading > a {
+      padding-bottom: 5px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .card {
+      min-width: 0;
+      padding: 12px 12px 18px;
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.64);
+      box-shadow: 0 10px 30px rgba(83, 63, 71, 0.08);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .card:hover,
+    .card:focus-within {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 38px rgba(83, 63, 71, 0.15);
+    }
+
+    .card-image-wrap {
+      position: relative;
+      overflow: hidden;
+      border-radius: 15px;
+      background: #dedbd4;
+      aspect-ratio: 4 / 4.7;
+    }
+
+    .card img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(.2,.7,.2,1);
+    }
+
+    .card:hover img,
+    .card:focus-within img {
+      transform: scale(1.045);
+    }
+
+    .card-number {
+      position: absolute;
+      top: 14px;
+      left: 15px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.9);
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+    }
+
+    .card-info {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 17px 3px 0;
+    }
+
+    .card h3 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: 1.45rem;
+      font-weight: 400;
+    }
+
+    .price {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.84rem;
+      white-space: nowrap;
+    }
+
+    .card-link {
+      display: inline-block;
+      margin: 12px 3px 0;
+      color: var(--accent);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      text-transform: uppercase;
+      border-bottom: 1px solid rgba(167, 75, 50, 0.5);
+      padding-bottom: 3px;
+    }
+
+    .auto-showroom {
+      padding: 76px clamp(20px, 6vw, 88px) 88px;
+      background: var(--sage);
+    }
+
+    .showroom-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .showroom-topline {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #b8d5cf;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .showroom-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 30px 0 34px;
+    }
+
+    .showroom-heading .eyebrow {
+      margin-bottom: 12px;
+      color: var(--accent);
+    }
+
+    .showroom-heading p:last-child {
+      max-width: 380px;
+      margin: 0 0 5px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .showroom-title {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(2.7rem, 5.2vw, 5rem);
+      font-weight: 400;
+      letter-spacing: -0.045em;
+      line-height: 1;
+    }
+
+    .auto-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 17px;
+    }
+
+    .auto-item {
+      min-width: 0;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.85);
+      border-radius: 20px;
+      background: #fbf8f2;
+      box-shadow: 0 9px 24px rgba(48, 85, 75, 0.08);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .auto-item:hover,
+    .auto-item:focus-within {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 30px rgba(48, 85, 75, 0.16);
+    }
+
+    .auto-visual {
+      position: relative;
+      display: grid;
+      place-items: center;
+      aspect-ratio: 1 / 1;
+      padding: 17px;
+      background: #f7f6f3;
+      overflow: hidden;
+    }
+
+    .auto-visual svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.35s ease;
+    }
+
+    .auto-item:hover .auto-visual svg,
+    .auto-item:focus-within .auto-visual svg {
+      transform: scale(1.04);
+    }
+
+    .auto-label {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      padding: 7px 9px;
+      border-radius: 999px;
+      background: white;
+      font-size: 0.61rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+    }
+
+    .auto-details {
+      padding: 17px 16px 18px;
+    }
+
+    .auto-details h3 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 400;
+    }
+
+    .auto-details p {
+      margin: 8px 0 16px;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    .auto-buy {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+    }
+
+    .auto-price {
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .shop-link {
+      color: var(--ink);
+      font-size: 0.63rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .shop-link:hover,
+    .shop-link:focus-visible {
+      color: var(--accent);
+    }
+
+    .custom-design {
+      padding: 90px 24px;
+      background: var(--rose);
+      color: var(--ink);
+    }
+
+    .custom-inner {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: clamp(35px, 8vw, 110px);
+      align-items: center;
+      width: min(1100px, 100%);
+      margin: 0 auto;
+    }
+
+    .custom-copy .eyebrow {
+      color: #8d3f56;
+    }
+
+    .custom-copy h2 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(2.8rem, 5vw, 5.1rem);
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: -0.045em;
+    }
+
+    .custom-copy p:not(.eyebrow) {
+      max-width: 430px;
+      margin: 20px 0 0;
+      color: #55434a;
+      line-height: 1.75;
+    }
+
+    .custom-note {
+      margin-top: 25px;
+      padding-top: 18px;
+      border-top: 1px solid #d6aebb;
+      color: #55434a;
+      font-size: 0.78rem;
+      line-height: 1.6;
+    }
+
+    .design-form {
+      display: grid;
+      gap: 15px;
+      padding: clamp(22px, 4vw, 38px);
+      border: 1px solid rgba(255, 255, 255, 0.85);
+      border-radius: 22px;
+      background: #fff8f8;
+      color: var(--ink);
+      box-shadow: 0 16px 40px rgba(96, 69, 70, 0.08);
+    }
+
+    .design-form label {
+      display: grid;
+      gap: 8px;
+      font-size: 0.67rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .design-form input,
+    .design-form select,
+    .design-form textarea {
+      width: 100%;
+      min-height: 46px;
+      padding: 12px;
+      border: 1px solid #d2cfc8;
+      border-radius: 10px;
+      background: #fff;
+      color: var(--ink);
+      font: inherit;
+    }
+
+    .design-form textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .design-form input:focus,
+    .design-form select:focus,
+    .design-form textarea:focus,
+    .button:focus-visible,
+    .nav a:focus-visible,
+    .card-link:focus-visible,
+    .shop-link:focus-visible,
+    .wordmark:focus-visible {
+      outline: 3px solid rgba(167, 75, 50, 0.28);
+      outline-offset: 2px;
+    }
+
+    .design-form .button {
+      width: 100%;
+      background: var(--ink);
+      color: #fff;
+    }
+
+    .design-form .button:hover,
+    .design-form .button:focus-visible {
+      background: var(--accent);
+    }
+
+    .form-help {
+      margin: -4px 0 0;
+      color: var(--muted);
+      font-size: 0.73rem;
+      line-height: 1.5;
+    }
+
+    .process {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 460px;
+      background: rgba(231, 228, 222, 0.86);
+    }
+
+    .process-image {
+      width: 100%;
+      height: 100%;
+      min-height: 380px;
+      object-fit: cover;
+    }
+
+    .process-copy {
+      align-self: center;
+      max-width: 600px;
+      padding: 65px clamp(28px, 7vw, 95px);
+    }
+
+    .process-copy .eyebrow {
+      color: var(--accent);
+    }
+
+    .process-copy h2 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 4.5vw, 4.6rem);
+      font-weight: 400;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+
+    .process-copy p:not(.eyebrow) {
+      margin: 20px 0 25px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .trust {
+      padding: 78px 24px;
+      text-align: center;
+      background: #fff0d9;
+    }
+
+    .trust .stars {
+      color: var(--accent);
+      letter-spacing: 0.2em;
+    }
+
+    .trust p {
+      margin: 13px 0 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 25px clamp(20px, 5vw, 78px);
+      border-top: 1px solid rgba(255, 255, 255, 0.75);
+      color: var(--muted);
+      font-size: 0.75rem;
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    footer strong {
+      color: var(--ink);
+      letter-spacing: 0.14em;
+    }
+
     @media (max-width: 980px) {
       .products { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .auto-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .custom-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
     }
+
     @media (max-width: 720px) {
       .topbar { height: 64px; }
       .nav a:not(.nav-order) { display: none; }
@@ -124,7 +713,7 @@
       .collection-heading { align-items: start; }
       .collection-heading > a { display: none; }
       .auto-showroom { padding: 58px 18px 65px; }
-      .showroom-topline { font-size: .57rem; }
+      .showroom-topline { font-size: 0.57rem; }
       .showroom-heading { display: block; }
       .showroom-heading p:last-child { margin-top: 15px; }
       .auto-grid { gap: 10px; }
@@ -132,7 +721,7 @@
       .auto-details { padding: 13px 11px; }
       .auto-details h3 { font-size: 1.12rem; }
       .auto-buy { align-items: flex-start; flex-direction: column; }
-      .shop-link { font-size: .59rem; }
+      .shop-link { font-size: 0.59rem; }
       .custom-design { padding: 65px 20px; }
       .custom-inner { grid-template-columns: 1fr; gap: 30px; }
       .process { grid-template-columns: 1fr; }
@@ -140,7 +729,13 @@
       .process-copy { padding: 55px 25px 65px; }
       footer { flex-direction: column; }
     }
-    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -150,18 +745,18 @@
       <a href="#portraits">Portraits</a>
       <a href="#auto-lover">Auto lover</a>
       <a href="#custom-design">Custom design</a>
-      <a class="nav-order" href="https://wa.me/94775035197">Order yours</a>
+      <a class="nav-order" href="https://wa.me/94775035197" target="_blank" rel="noopener noreferrer">Order yours</a>
     </nav>
   </header>
 
   <main id="home">
     <section class="hero" aria-labelledby="hero-title">
-      <img class="hero-image" src="905978022_1008658248246153_5947324095750337213_n.jpg" alt="Colorful perler bead art keychains hanging from a car rearview mirror - Beadora handmade">
+      <img class="hero-image" src="905978022_1008658248246153_5947324095750337213_n.jpg" alt="Colorful perler bead art keychains hanging from a car rearview mirror - Beadora handmade" width="1600" height="1000">
       <div class="hero-content">
         <p class="eyebrow">A little art. A lot of heart.</p>
         <h1 id="hero-title">Made of beads.<br>Made for you.</h1>
         <p class="hero-copy">We turn the faces you love into thoughtful, handmade bead portraits—one tiny detail at a time.</p>
-        <a class="button" href="https://wa.me/94775035197">Create your portrait <span aria-hidden="true">&nbsp;↗</span></a>
+        <a class="button" href="https://wa.me/94775035197" target="_blank" rel="noopener noreferrer">Create your portrait <span aria-hidden="true">&nbsp;↗</span></a>
       </div>
       <span class="hero-index">HANDMADE PORTRAITS&nbsp;&nbsp; / &nbsp;&nbsp;BEADORA</span>
     </section>
@@ -178,32 +773,44 @@
           <p class="eyebrow">The portrait collection</p>
           <h2 class="section-title" id="collection-title">Made for your kind of love.</h2>
         </div>
-        <a href="https://wa.me/94775035197">See all portraits&nbsp; ↗</a>
+        <a href="https://wa.me/94775035197" target="_blank" rel="noopener noreferrer">See all portraits&nbsp; ↗</a>
       </div>
+
       <div class="products">
         <article class="card">
           <div class="card-image-wrap">
-            <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="Close-up portrait of a happy dog" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=1000&q=80" alt="Close-up portrait of a happy dog" loading="lazy" width="1000" height="1200">
             <span class="card-number">01 / PETS</span>
           </div>
-          <div class="card-info"><h3>Pet portrait</h3><p class="price">From R$ 149</p></div>
-          <a class="card-link" href="https://wa.me/94775035197?text=Hi%20Beadora%2C%20I%27d%20like%20to%20order%20a%20pet%20portrait.">Make one for your pet&nbsp; ↗</a>
+          <div class="card-info">
+            <h3>Pet portrait</h3>
+            <p class="price">From R$ 149</p>
+          </div>
+          <a class="card-link" href="https://wa.me/94775035197?text=Hi%20Beadora%2C%20I%27d%20like%20to%20order%20a%20pet%20portrait." target="_blank" rel="noopener noreferrer">Make one for your pet&nbsp; ↗</a>
         </article>
+
         <article class="card">
           <div class="card-image-wrap">
-            <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="A couple sharing a warm moment together" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1000&q=80" alt="A couple sharing a warm moment together" loading="lazy" width="1000" height="1200">
             <span class="card-number">02 / PEOPLE</span>
           </div>
-          <div class="card-info"><h3>Couple portrait</h3><p class="price">From R$ 199</p></div>
-          <a class="card-link" href="https://wa.me/94775035197?text=Hi%20Beadora%2C%20I%27d%20like%20to%20order%20a%20couple%20portrait.">Make one for someone&nbsp; ↗</a>
+          <div class="card-info">
+            <h3>Couple portrait</h3>
+            <p class="price">From R$ 199</p>
+          </div>
+          <a class="card-link" href="https://wa.me/94775035197?text=Hi%20Beadora%2C%20I%27d%20like%20to%20order%20a%20couple%20portrait." target="_blank" rel="noopener noreferrer">Make one for someone&nbsp; ↗</a>
         </article>
+
         <article class="card">
           <div class="card-image-wrap">
-            <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="A family enjoying a moment together" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1000&q=80" alt="A family enjoying a moment together" loading="lazy" width="1000" height="1200">
             <span class="card-number">03 / FAMILY</span>
           </div>
-          <div class="card-info"><h3>Baby portrait</h3><p class="price">From R$ 249</p></div>
-          <a class="card-link" href="https://wa.me/94775035197?text=Hi%20Beadora%2C%20I%27d%20like%20to%20ask%20about%20a%20baby%20portrait.">Celebrate a little one&nbsp; ↗</a>
+          <div class="card-info">
+            <h3>Family portrait</h3>
+            <p class="price">From R$ 249</p>
+          </div>
+          <a class="card-link" href="https://wa.me/94775035197?text=Hi%20Beadora%2C%20I%27d%20like%20to%20ask%20about%20a%20family%20portrait." target="_blank" rel="noopener noreferrer">Celebrate your people&nbsp; ↗</a>
         </article>
       </div>
     </section>
@@ -212,51 +819,105 @@
       <div class="showroom-inner">
         <div class="showroom-topline"><span>BEADORA GARAGE&nbsp; / &nbsp;01—04</span><span>Handmade car charms</span></div>
         <div class="showroom-heading">
-          <div><p class="eyebrow">For the love of the drive</p><h2 class="showroom-title" id="auto-title">AUTO LOVER</h2></div>
+          <div>
+            <p class="eyebrow">For the love of the drive</p>
+            <h2 class="showroom-title" id="auto-title">AUTO LOVER</h2>
+          </div>
           <p>Pixel-inspired car charms, handmade with beads. Choose a favorite design or tell us what you dream of driving.</p>
         </div>
+
         <div class="auto-grid">
           <article class="auto-item">
             <div class="auto-visual">
               <span class="auto-label">01 / TURBO</span>
               <svg viewBox="0 0 200 160" role="img" aria-label="Blue Turbo car bead charm illustration">
-                <rect x="10" y="84" width="176" height="34" fill="#0f4b99"/><rect x="40" y="54" width="92" height="28" fill="#0f4b99"/><rect x="58" y="42" width="26" height="14" fill="#0c3b7f"/><rect x="84" y="42" width="36" height="14" fill="#0c3b7f"/>
-                <rect x="16" y="94" width="14" height="10" fill="#90cdf9"/><rect x="28" y="94" width="14" height="10" fill="#90cdf9"/><rect x="122" y="94" width="14" height="10" fill="#90cdf9"/><rect x="136" y="94" width="14" height="10" fill="#90cdf9"/>
-                <rect x="28" y="68" width="16" height="18" fill="#f4f4f4"/><rect x="44" y="68" width="16" height="18" fill="#f4f4f4"/><rect x="78" y="68" width="16" height="18" fill="#f4f4f4"/><rect x="94" y="68" width="20" height="18" fill="#f4f4f4"/>
-                <text x="98" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="900" fill="#fff" letter-spacing="1.5">TURBO</text><circle cx="34" cy="118" r="10" fill="#111"/><circle cx="154" cy="118" r="10" fill="#111"/><circle cx="34" cy="118" r="4" fill="#ddd"/><circle cx="154" cy="118" r="4" fill="#ddd"/>
+                <rect x="10" y="84" width="176" height="34" fill="#0f4b99"/>
+                <rect x="40" y="54" width="92" height="28" fill="#0f4b99"/>
+                <rect x="58" y="42" width="26" height="14" fill="#0c3b7f"/>
+                <rect x="78" y="30" width="30" height="18" fill="#0f4b99"/>
+                <rect x="16" y="94" width="14" height="10" fill="#90cdf9"/>
+                <rect x="28" y="94" width="14" height="10" fill="#90cdf9"/>
+                <rect x="122" y="94" width="14" height="10" fill="#90cdf9"/>
+                <rect x="134" y="94" width="14" height="10" fill="#90cdf9"/>
+                <rect x="28" y="68" width="16" height="18" fill="#f4f4f4"/>
+                <rect x="44" y="68" width="16" height="18" fill="#f4f4f4"/>
+                <rect x="78" y="68" width="16" height="18" fill="#f4f4f4"/>
+                <rect x="94" y="68" width="16" height="18" fill="#f4f4f4"/>
+                <text x="98" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="900" fill="#fff" letter-spacing="1.5">TURBO</text>
+                <circle cx="34" cy="118" r="10" fill="#000"/>
+                <circle cx="154" cy="118" r="10" fill="#000"/>
               </svg>
             </div>
-            <div class="auto-details"><h3>Turbo Blue</h3><p>Blue pixel car charm</p><div class="auto-buy"><span class="auto-price">From R$ 279</span><a class="shop-link" href="https://wa.me/94775035197">Order this charm ↗</a></div></div>
+            <div class="auto-details">
+              <h3>Turbo Blue</h3>
+              <p>Blue pixel car charm</p>
+              <div class="auto-buy"><span class="auto-price">From R$ 279</span><a class="shop-link" href="https://wa.me/94775035197?text=Hi%20Beadora%2C%20I%27d%20like%20to%20order%20the%20Turbo%20Blue%20charm." target="_blank" rel="noopener noreferrer">Shop</a></div>
+            </div>
           </article>
+
           <article class="auto-item">
             <div class="auto-visual">
               <span class="auto-label">02 / RACE</span>
               <svg viewBox="0 0 200 160" role="img" aria-label="Green Race car bead charm illustration">
-                <rect x="14" y="86" width="168" height="36" fill="#2d9d52"/><rect x="48" y="54" width="82" height="28" fill="#2d9d52"/><rect x="36" y="84" width="16" height="16" fill="#dcecf2"/><rect x="56" y="64" width="28" height="18" fill="#dcecf2"/><rect x="88" y="64" width="30" height="18" fill="#dcecf2"/>
-                <text x="100" y="112" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="900" fill="#fff">RACE</text><circle cx="34" cy="120" r="10" fill="#000"/><circle cx="154" cy="120" r="10" fill="#000"/><circle cx="34" cy="120" r="4" fill="#ddd"/><circle cx="154" cy="120" r="4" fill="#ddd"/>
+                <rect x="14" y="86" width="168" height="36" fill="#2d9d52"/>
+                <rect x="48" y="54" width="82" height="28" fill="#2d9d52"/>
+                <rect x="36" y="84" width="16" height="16" fill="#dcecf2"/>
+                <rect x="122" y="84" width="16" height="16" fill="#dcecf2"/>
+                <rect x="64" y="42" width="28" height="12" fill="#246f41"/>
+                <text x="100" y="112" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="900" fill="#fff">RACE</text>
+                <circle cx="34" cy="120" r="10" fill="#000"/>
+                <circle cx="156" cy="120" r="10" fill="#000"/>
               </svg>
             </div>
-            <div class="auto-details"><h3>Race Green</h3><p>Green racing car charm</p><div class="auto-buy"><span class="auto-price">From R$ 279</span><a class="shop-link" href="https://wa.me/94775035197">Order this charm ↗</a></div></div>
+            <div class="auto-details">
+              <h3>Race Green</h3>
+              <p>Green racing car charm</p>
+              <div class="auto-buy"><span class="auto-price">From R$ 279</span><a class="shop-link" href="https://wa.me/94775035197?text=Hi%20Beadora%2C%20I%27d%20like%20to%20order%20the%20Race%20Green%20charm." target="_blank" rel="noopener noreferrer">Shop</a></div>
+            </div>
           </article>
+
           <article class="auto-item">
             <div class="auto-visual">
               <span class="auto-label">03 / FAST</span>
               <svg viewBox="0 0 200 160" role="img" aria-label="Red Fast car bead charm illustration">
-                <rect x="18" y="88" width="168" height="34" fill="#d53030"/><rect x="50" y="56" width="74" height="28" fill="#d53030"/><rect x="66" y="44" width="18" height="12" fill="#d53030"/><rect x="84" y="44" width="28" height="12" fill="#d53030"/><rect x="62" y="64" width="24" height="16" fill="#e9f4f8"/><rect x="90" y="64" width="26" height="16" fill="#e9f4f8"/>
-                <text x="100" y="112" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="#fff">FAST</text><circle cx="34" cy="122" r="10" fill="#000"/><circle cx="154" cy="122" r="10" fill="#000"/><circle cx="34" cy="122" r="4" fill="#ddd"/><circle cx="154" cy="122" r="4" fill="#ddd"/>
+                <rect x="18" y="88" width="168" height="34" fill="#d53030"/>
+                <rect x="50" y="56" width="74" height="28" fill="#d53030"/>
+                <rect x="66" y="44" width="18" height="12" fill="#d53030"/>
+                <rect x="30" y="96" width="14" height="14" fill="#f8d7d7"/>
+                <rect x="124" y="96" width="14" height="14" fill="#f8d7d7"/>
+                <text x="100" y="112" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="#fff">FAST</text>
+                <circle cx="34" cy="122" r="10" fill="#000"/>
+                <circle cx="156" cy="122" r="10" fill="#000"/>
               </svg>
             </div>
-            <div class="auto-details"><h3>Fast Red</h3><p>Red speedster car charm</p><div class="auto-buy"><span class="auto-price">From R$ 279</span><a class="shop-link" href="https://wa.me/94775035197">Order this charm ↗</a></div></div>
+            <div class="auto-details">
+              <h3>Fast Red</h3>
+              <p>Red speedster car charm</p>
+              <div class="auto-buy"><span class="auto-price">From R$ 279</span><a class="shop-link" href="https://wa.me/94775035197?text=Hi%20Beadora%2C%20I%27d%20like%20to%20order%20the%20Fast%20Red%20charm." target="_blank" rel="noopener noreferrer">Shop</a></div>
+            </div>
           </article>
+
           <article class="auto-item">
             <div class="auto-visual">
               <span class="auto-label">04 / Y8</span>
               <svg viewBox="0 0 200 160" role="img" aria-label="Black and white Y8 car bead charm illustration">
-                <g fill="#000"><rect x="22" y="30" width="154" height="92" rx="18"/><circle cx="34" cy="36" r="8"/><circle cx="164" cy="36" r="8"/><circle cx="34" cy="104" r="8"/><circle cx="164" cy="104" r="8"/></g>
-                <text x="100" y="84" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="900" fill="#111">Y8</text><circle cx="52" cy="74" r="9" fill="#ff5da9"/><circle cx="148" cy="74" r="9" fill="#5cc8ff"/><rect x="60" y="94" width="80" height="10" fill="#ffce42"/>
+                <g fill="#000">
+                  <rect x="22" y="30" width="154" height="92" rx="18"/>
+                  <circle cx="34" cy="36" r="8"/>
+                  <circle cx="164" cy="36" r="8"/>
+                  <circle cx="34" cy="104" r="8"/>
+                  <circle cx="164" cy="104" r="8"/>
+                </g>
+                <text x="100" y="84" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="900" fill="#111">Y8</text>
+                <circle cx="52" cy="74" r="9" fill="#ff5da9"/>
+                <circle cx="144" cy="74" r="9" fill="#ff5da9"/>
               </svg>
             </div>
-            <div class="auto-details"><h3>Y8 Classic</h3><p>Classic pixel car charm</p><div class="auto-buy"><span class="auto-price">From R$ 279</span><a class="shop-link" href="https://wa.me/94775035197">Order this charm ↗</a></div></div>
+            <div class="auto-details">
+              <h3>Y8 Classic</h3>
+              <p>Classic pixel car charm</p>
+              <div class="auto-buy"><span class="auto-price">From R$ 279</span><a class="shop-link" href="https://wa.me/94775035197?text=Hi%20Beadora%2C%20I%27d%20like%20to%20order%20the%20Y8%20Classic%20charm." target="_blank" rel="noopener noreferrer">Shop</a></div>
+            </div>
           </article>
         </div>
       </div>
@@ -270,21 +931,25 @@
           <p>Have a car, color, name, or little detail in mind? Tell us what you’d love and we’ll get back to you about making it into a custom bead charm.</p>
           <div class="custom-note">Custom designs are quoted individually. When WhatsApp opens, attach your reference photo there so we can see exactly what you have in mind.</div>
         </div>
-        <form class="design-form" id="design-form">
+
+        <form class="design-form" id="design-form" novalidate>
           <label for="customer-name">Your name
             <input id="customer-name" name="name" type="text" placeholder="Name" autocomplete="name" required>
           </label>
+
           <label for="design-type">What would you like designed?
             <select id="design-type" name="type" required>
               <option value="" disabled selected>Choose a design type</option>
-              <option>Custom car charm</option>
-              <option>Personalized name or message</option>
-              <option>Other custom bead design</option>
+              <option value="Custom car charm">Custom car charm</option>
+              <option value="Personalized name or message">Personalized name or message</option>
+              <option value="Other custom bead design">Other custom bead design</option>
             </select>
           </label>
+
           <label for="design-details">Tell us about your idea
             <textarea id="design-details" name="details" placeholder="Car model, colors, text, size, or any special details…" required></textarea>
           </label>
+
           <p class="form-help">This opens a WhatsApp message to Beadora. You can attach your inspiration image in the chat.</p>
           <button class="button" type="submit">Send design request&nbsp; ↗</button>
         </form>
@@ -292,12 +957,12 @@
     </section>
 
     <section class="process" id="story" aria-labelledby="process-title">
-      <img class="process-image" src="https://images.unsplash.com/photo-1452860606245-08befc0ff44b?auto=format&amp;fit=crop&amp;w=1400&amp;q=80" alt="An artist's tools and materials arranged on a work table" loading="lazy">
+      <img class="process-image" src="https://images.unsplash.com/photo-1452860606245-08befc0ff44b?auto=format&fit=crop&w=1400&q=80" alt="An artist's tools and materials arranged on a workbench" loading="lazy" width="1400" height="900">
       <div class="process-copy">
         <p class="eyebrow">Thoughtfully made, just for you</p>
         <h2 id="process-title">Your memories,<br>in every detail.</h2>
         <p>Choose a photo you love and we’ll bring it to life as a one-of-a-kind keepsake. Each piece is carefully handmade with patience, care, and plenty of tiny beads.</p>
-        <a class="button button-dark" href="https://wa.me/94775035197">Let's make yours&nbsp; ↗</a>
+        <a class="button button-dark" href="https://wa.me/94775035197" target="_blank" rel="noopener noreferrer">Let's make yours&nbsp; ↗</a>
       </div>
     </section>
 
@@ -307,16 +972,37 @@
     </section>
   </main>
 
-  <footer><strong>BEADORA</strong><span>Made with care, one bead at a time&nbsp; ✨</span><span>© 2026 Beadora</span></footer>
+  <footer>
+    <strong>BEADORA</strong>
+    <span>Made with care, one bead at a time&nbsp; ✨</span>
+    <span>© 2026 Beadora</span>
+  </footer>
+
   <script>
-    document.getElementById('design-form').addEventListener('submit', function (event) {
-      event.preventDefault();
-      const form = event.currentTarget;
-      const name = form.elements.name.value.trim();
-      const type = form.elements.type.value;
-      const details = form.elements.details.value.trim();
-      const message = `Hi Beadora! My name is ${name}. I’m interested in: ${type}. Design details: ${details}. I’ll attach my reference image here.`;
-      window.open(`https://wa.me/94775035197?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('design-form');
+
+      if (!form) return;
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const name = (form.elements.name.value || '').trim();
+        const type = (form.elements.type.value || '').trim();
+        const details = (form.elements.details.value || '').trim();
+
+        if (!name || !type || !details) {
+          form.reportValidity();
+          return;
+        }
+
+        const message = `Hi Beadora! My name is ${name}. I’m interested in: ${type}. Design details: ${details}. I’ll attach my reference image here.`;
+        window.open(
+          `https://wa.me/94775035197?text=${encodeURIComponent(message)}`,
+          '_blank',
+          'noopener,noreferrer'
+        );
+      });
     });
   </script>
 </body>
