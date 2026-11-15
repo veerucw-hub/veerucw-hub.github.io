@@ -57,6 +57,9 @@
     .card h3 { margin: 0; font-family: var(--serif); font-size: 1.45rem; font-weight: 400; }
     .price { margin: 0; color: var(--muted); font-size: .84rem; white-space: nowrap; }
     .card-link { display: inline-block; margin-top: 12px; font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-decoration: none; text-transform: uppercase; border-bottom: 1px solid var(--line); padding-bottom: 5px; }
+    .auto-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; width: 100%; margin-top: 14px; }
+    .auto-art { display: flex; align-items: center; justify-content: center; width: 100%; min-height: 170px; background: #efefec; border: 1px solid #d3d0c9; border-radius: 18px; overflow: hidden; }
+    .auto-art svg { width: 100%; height: 100%; display: block; }
     .process { display: grid; grid-template-columns: 1fr 1fr; min-height: 460px; background: #e7e4de; }
     .process-image { width: 100%; height: 100%; min-height: 380px; object-fit: cover; }
     .process-copy { align-self: center; max-width: 600px; padding: 65px clamp(28px, 7vw, 95px); }
@@ -85,6 +88,7 @@
       .card-image-wrap { aspect-ratio: 4 / 3.7; }
       .collection-heading { align-items: start; }
       .collection-heading > a { display: none; }
+      .auto-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .process { grid-template-columns: 1fr; }
       .process-image { min-height: 290px; max-height: 380px; }
       .process-copy { padding: 55px 25px 65px; }
@@ -156,7 +160,108 @@
         </article>
         <article class="card">
           <div class="card-image-wrap">
-            <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1000&q=80" alt="Luxury sports car on a road" loading="lazy">
+            <div class="auto-gallery" aria-label="Car lover bead artwork options">
+              <div class="auto-art">
+                <svg viewBox="0 0 200 160" role="img" aria-label="Turbo car art">
+                  <rect x="10" y="84" width="176" height="34" fill="#0f4b99"/>
+                  <rect x="40" y="54" width="92" height="28" fill="#0f4b99"/>
+                  <rect x="58" y="42" width="26" height="14" fill="#0c3b7f"/>
+                  <rect x="103" y="42" width="18" height="14" fill="#0c3b7f"/>
+                  <rect x="16" y="94" width="14" height="10" fill="#90cdf9"/>
+                  <rect x="28" y="94" width="14" height="10" fill="#90cdf9"/>
+                  <rect x="122" y="94" width="14" height="10" fill="#90cdf9"/>
+                  <rect x="134" y="94" width="14" height="10" fill="#90cdf9"/>
+                  <rect x="86" y="82" width="72" height="8" fill="#d7d7d7"/>
+                  <rect x="76" y="88" width="86" height="8" fill="#d7d7d7"/>
+                  <rect x="28" y="68" width="16" height="18" fill="#f4f4f4"/>
+                  <rect x="44" y="68" width="16" height="18" fill="#f4f4f4"/>
+                  <rect x="78" y="68" width="16" height="18" fill="#f4f4f4"/>
+                  <rect x="94" y="68" width="18" height="18" fill="#f4f4f4"/>
+                  <rect x="116" y="68" width="14" height="18" fill="#f4f4f4"/>
+                  <rect x="134" y="68" width="14" height="18" fill="#f4f4f4"/>
+                  <text x="98" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="900" fill="#fff" letter-spacing="1.5">TURBO</text>
+                  <circle cx="34" cy="118" r="10" fill="#000"/>
+                  <circle cx="144" cy="118" r="10" fill="#000"/>
+                  <circle cx="34" cy="118" r="4" fill="#c2a45c"/>
+                  <circle cx="144" cy="118" r="4" fill="#c2a45c"/>
+                </svg>
+              </div>
+              <div class="auto-art">
+                <svg viewBox="0 0 200 160" role="img" aria-label="Race car art">
+                  <rect x="14" y="86" width="168" height="36" fill="#2d9d52"/>
+                  <rect x="48" y="54" width="82" height="28" fill="#2d9d52"/>
+                  <rect x="36" y="84" width="16" height="16" fill="#dcecf2"/>
+                  <rect x="56" y="84" width="16" height="16" fill="#dcecf2"/>
+                  <rect x="116" y="84" width="16" height="16" fill="#dcecf2"/>
+                  <rect x="136" y="84" width="16" height="16" fill="#dcecf2"/>
+                  <rect x="30" y="68" width="26" height="18" fill="#dcecf2"/>
+                  <rect x="60" y="68" width="26" height="18" fill="#dcecf2"/>
+                  <rect x="100" y="68" width="26" height="18" fill="#dcecf2"/>
+                  <rect x="130" y="68" width="26" height="18" fill="#dcecf2"/>
+                  <text x="100" y="112" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="900" fill="#fff">RACE</text>
+                  <circle cx="34" cy="120" r="10" fill="#000"/>
+                  <circle cx="150" cy="120" r="10" fill="#000"/>
+                  <circle cx="34" cy="120" r="4" fill="#c2a45c"/>
+                  <circle cx="150" cy="120" r="4" fill="#c2a45c"/>
+                  <rect x="16" y="60" width="10" height="10" fill="#ff7ab6"/>
+                  <rect x="90" y="58" width="10" height="10" fill="#ff7ab6"/>
+                </svg>
+              </div>
+              <div class="auto-art">
+                <svg viewBox="0 0 200 160" role="img" aria-label="Fast car art">
+                  <rect x="18" y="88" width="168" height="34" fill="#d53030"/>
+                  <rect x="50" y="56" width="74" height="28" fill="#d53030"/>
+                  <rect x="66" y="44" width="18" height="12" fill="#d53030"/>
+                  <rect x="88" y="44" width="18" height="12" fill="#d53030"/>
+                  <rect x="26" y="66" width="20" height="18" fill="#fff"/>
+                  <rect x="54" y="66" width="20" height="18" fill="#fff"/>
+                  <rect x="118" y="66" width="20" height="18" fill="#fff"/>
+                  <rect x="146" y="66" width="20" height="18" fill="#fff"/>
+                  <text x="100" y="112" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="#fff">FAST</text>
+                  <circle cx="34" cy="122" r="10" fill="#000"/>
+                  <circle cx="146" cy="122" r="10" fill="#000"/>
+                  <circle cx="34" cy="122" r="4" fill="#c2a45c"/>
+                  <circle cx="146" cy="122" r="4" fill="#c2a45c"/>
+                  <rect x="42" y="48" width="10" height="10" fill="#ffb703"/>
+                  <rect x="80" y="48" width="10" height="10" fill="#ffb703"/>
+                </svg>
+              </div>
+              <div class="auto-art">
+                <svg viewBox="0 0 200 160" role="img" aria-label="Y8 car art">
+                  <g fill="#000">
+                    <rect x="22" y="30" width="154" height="92" rx="18"/>
+                    <circle cx="34" cy="36" r="8"/>
+                    <circle cx="164" cy="36" r="8"/>
+                    <circle cx="34" cy="104" r="8"/>
+                    <circle cx="164" cy="104" r="8"/>
+                  </g>
+                  <g fill="#fff">
+                    <rect x="34" y="42" width="18" height="18"/>
+                    <rect x="56" y="42" width="18" height="18"/>
+                    <rect x="78" y="42" width="18" height="18"/>
+                    <rect x="100" y="42" width="18" height="18"/>
+                    <rect x="122" y="42" width="18" height="18"/>
+                    <rect x="144" y="42" width="18" height="18"/>
+                    <rect x="34" y="60" width="18" height="18"/>
+                    <rect x="56" y="60" width="18" height="18"/>
+                    <rect x="78" y="60" width="18" height="18"/>
+                    <rect x="100" y="60" width="18" height="18"/>
+                    <rect x="122" y="60" width="18" height="18"/>
+                    <rect x="144" y="60" width="18" height="18"/>
+                    <rect x="34" y="78" width="18" height="18"/>
+                    <rect x="56" y="78" width="18" height="18"/>
+                    <rect x="78" y="78" width="18" height="18"/>
+                    <rect x="100" y="78" width="18" height="18"/>
+                    <rect x="122" y="78" width="18" height="18"/>
+                    <rect x="144" y="78" width="18" height="18"/>
+                  </g>
+                  <text x="100" y="84" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="900" fill="#111">Y8</text>
+                  <circle cx="52" cy="74" r="9" fill="#ff5da9"/>
+                  <circle cx="148" cy="74" r="9" fill="#ff5da9"/>
+                  <rect x="56" y="92" width="88" height="10" fill="#ff5da9"/>
+                </svg>
+              </div>
+            </div>
             <span class="card-number">04 / AUTO</span>
           </div>
           <div class="card-info"><h3>AUTO LOVER</h3><p class="price">From R$ 279</p></div>
